@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LessorController;
+use App\Http\Controllers\PassportAuthController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +17,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('register', [PassportAuthController::class, 'register'])->name('register');
+Route::post('login', [PassportAuthController::class, 'login'])->name('login');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('register', [PassportAuthController::class, 'registerView']);
+Route::get('login', [PassportAuthController::class, 'loginView']);
+
+Route::get('/home', [LessorController::class, 'index']);
+Route::get('/create', [LessorController::class, 'create']);
+
+Route::post('logout', function(){
+    Auth::logout();
+    return redirect('/');
+})->name('logout');
+
+
+
+

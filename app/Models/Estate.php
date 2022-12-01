@@ -11,6 +11,13 @@ class Estate extends Model
 {
     use HasFactory;
 
+    public const TYPE_FLAT = 'flat';
+    public const TYPE_HOUSE = 'house';
+    public static $types = [
+        self::TYPE_FLAT => 'квартира',
+        self::TYPE_HOUSE => 'будинок',
+    ];
+
     protected $fillable = [
         'user_id',
         'address_id',
