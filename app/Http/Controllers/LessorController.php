@@ -26,4 +26,5 @@ class LessorController extends Controller
         $addresses = Address::query()->get();
         return view('lessor.create', ['addresses' => $addresses]);
     }
+
 }

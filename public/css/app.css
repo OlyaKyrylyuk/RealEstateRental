@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700|Raleway:400,300,700);
+
 @font-face {
     font-family: 'codropsicons';
     src:url('https://tympanus.net/Development/IconHoverEffects/fonts/codropsicons/codropsicons.eot');
@@ -948,7 +949,7 @@ nav a:focus {
 }
 
 .register_block {
-    width:40%;
+    width:80%;
     padding:10px;
     background-color: #ae8888;
     display: flex;
@@ -957,4 +958,6 @@ nav a:focus {
     border: 1px solid white;
     border-radius:10px;
 }
-
+.font{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}

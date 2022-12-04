@@ -6,21 +6,21 @@
             <div class="filter_group">
                 {{--           тип будівлі--}}
 
-                <label>Тип будівлі</label>
+                <label>ТИП БУДІВЛІ</label>
 
                 <div style="margin-left: 10px;">
                     <input type="checkbox" name="" value=""/>
-                    <label>Будинок</label>
+                    <label>БУДИНОК</label>
                     <br>
                     <input type="checkbox" name="" value=""/>
-                    <label>Квартира</label>
+                    <label>КВАРТИРА</label>
                 </div>
 
             </div>
             <div style="margin-top: 5px;"></div>
             <div class="filter_group">
                 {{--           кількість кімнат--}}
-                <label>Кількість кімнат</label>
+                <label>КІЛЬКІСТЬ КІМНАТ</label>
 
                 <div style="margin-left: 10px;">
                     <input type="checkbox" name="" value=""/>
@@ -40,14 +40,18 @@
 
         <div class="filter_group">
                 {{--           поверх (якщо квартира)--}}
-                <label>Поверх</label>
+                <label>ПОВЕРХ</label>
 
-                <div style="margin-left: 10px;">
-                    <input type="number" name="" value=""/>
-                    <label>від</label>
-                    <br>
-                    <input type="number" name="" value=""/>
-                    <label>до</label>
+                <div style="margin-right: 10px;">
+                    <div class="form-group">
+                        <label>ВІД</label>
+                        <input class="form-control" style="margin-right: 5px;" type="number" name="" value=""/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ДО</label>
+                        <input class="form-control" style="margin-right: 5px;" type="number" name="" value=""/>
+                    </div>
                 </div>
             </div>
         <div style="margin-top: 5px;"></div>
@@ -55,28 +59,38 @@
         <div class="filter_group">
                 {{--           ціна--}}
 
-                <label>Ціна (від грн)</label>
+                <label>ЦІНА (ВІД ГРН)</label>
 
-                <div style="margin-left: 10px;">
-                    <input type="number" name="" value=""/>
-                    <label>від</label>
-                    <br>
-                    <input type="number" name="" value=""/>
-                    <label>до</label>
+                <div style="margin-right: 10px;">
+                    <div class="form-group">
+                        <label>ВІД</label>
+                        <input class="form-control" style="margin-right: 5px;" type="number" name="" value=""/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ДО</label>
+                        <input class="form-control" style="margin-right: 5px;" type="number" name="" value=""/>
+                    </div>
                 </div>
             </div>
         <div style="margin-top: 5px;"></div>
 
         <button class="filter-button">
-            Знайти
+            ЗНАЙТИ
         </button>
         </div>
     <div class="col-md-9">
+        <div style="display:flex; flex-wrap: wrap;">
         @forelse($accessibleFlats as $flat)
-            {{$flat}}
+                <div style="flex: 0 0 50%;">
+                    <img width="350px" height="250px" style="border: 12px solid gray; border-radius: 10px; margin-top: 20px; margin-left: 20px;" src="/images/{{optional($flat->media)->value}}"/>
+                    <h4 style="margin-left: 160px;"><strong>₴{{$flat->price}}</strong></h4>
+                    <p style="max-width: 350px; margin-left: 30px;"><strong>ОПИС:</strong> {{$flat->description}}</p>
+                </div>
         @empty
             <p>Немає наявного житла</p>
         @endforelse
+        </div>
     </div>
 </div>
 </div>

@@ -13,7 +13,7 @@ class CreateMediasTable extends Migration
      */
     public function up()
     {
-        Schema::create('medias', function (Blueprint $table) {
+        Schema::create('media', function (Blueprint $table) {
             $table->id();
             $table->foreignId('estate_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
 
@@ -30,6 +30,6 @@ class CreateMediasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('medias');
+        Schema::dropIfExists('media');
     }
 }

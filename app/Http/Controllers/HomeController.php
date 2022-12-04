@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estate;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
         $accessibleFlats = Estate::query()
-            ->where('is_busy', true)
+            ->with(['media', 'address'])
+            ->where('is_busy', false)
             ->get();
+
         return view('home.index', [
             'accessibleFlats' => $accessibleFlats
         ]);

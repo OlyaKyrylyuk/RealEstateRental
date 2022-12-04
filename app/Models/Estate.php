@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Estate extends Model
 {
@@ -31,9 +32,9 @@ class Estate extends Model
         'is_busy',
     ];
 
-    public function medias(): hasMany
+    public function media(): hasOne
     {
-        return $this->hasMany(Media::class);
+        return $this->hasOne(Media::class);
     }
 
     public function address(): belongsTo

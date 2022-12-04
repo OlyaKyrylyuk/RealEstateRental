@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EstateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessorController;
 use App\Http\Controllers\PassportAuthController;
@@ -26,6 +27,10 @@ Route::get('login', [PassportAuthController::class, 'loginView']);
 
 Route::get('/home', [LessorController::class, 'index']);
 Route::get('/create', [LessorController::class, 'create']);
+Route::get('/estates/edit/{id}', [EstateController::class, 'edit']);
+Route::post('/store', [EstateController::class, 'store'])->name('estates.store');
+Route::post('/update', [EstateController::class, 'update'])->name('estates.update');
+Route::post('/delete/{id}', [EstateController::class, 'delete'])->name('estates.delete');
 
 Route::post('logout', function(){
     Auth::logout();
